@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>簡単企画書ジェネレーター</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: auto; }
+        textarea { width: 100%; height: 50px; }
+        button { margin-top: 10px; }
+        #proposal { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h2>簡単企画書ジェネレーター</h2>
+    <p>以下の質問に答えて、簡単な企画書を作成しましょう。</p>
+    
+    <label>1. 企画のタイトル：</label>
+    <input type="text" id="title"><br>
+
+    <label>2. 目的：</label>
+    <textarea id="purpose"></textarea><br>
+
+    <label>3. 対象者：</label>
+    <textarea id="audience"></textarea><br>
+
+    <label>4. 方法：</label>
+    <textarea id="method"></textarea><br>
+
+    <label>5. 期待される効果：</label>
+    <textarea id="effect"></textarea><br>
+
+    <button onclick="generateProposal()">企画書を作成</button>
+
+    <div id="proposal"></div>
+
+    <script>
+        function generateProposal() {
+            const title = document.getElementById("title").value;
+            const purpose = document.getElementById("purpose").value;
+            const audience = document.getElementById("audience").value;
+            const method = document.getElementById("method").value;
+            const effect = document.getElementById("effect").value;
+
+            const proposalText = `
+                <h3>${title}</h3>
+                <p><strong>目的:</strong> ${purpose}</p>
+                <p><strong>対象者:</strong> ${audience}</p>
+                <p><strong>方法:</strong> ${method}</p>
+                <p><strong>期待される効果:</strong> ${effect}</p>
+            `;
+
+            document.getElementById("proposal").innerHTML = proposalText;
+        }
+    </script>
+</body>
+</html>
